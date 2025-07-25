@@ -3,6 +3,7 @@ package com.nubank.desafio_backend.service;
 import com.nubank.desafio_backend.dto.client.ClientRequest;
 import com.nubank.desafio_backend.dto.client.ClientResponse;
 import com.nubank.desafio_backend.dto.contact.ContactResponse;
+import com.nubank.desafio_backend.exceptions.ClientNotFoundException;
 import com.nubank.desafio_backend.mapper.ClientMapper;
 import com.nubank.desafio_backend.mapper.ContactMapper;
 import com.nubank.desafio_backend.model.Client;
@@ -39,7 +40,7 @@ public class ClientService {
 
     public Client getClientById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
+                .orElseThrow(() -> new ClientNotFoundException("Client not found with id: " + id));
     }
 
     public List<ContactResponse> getContactsByClientId(Long clientId) {
