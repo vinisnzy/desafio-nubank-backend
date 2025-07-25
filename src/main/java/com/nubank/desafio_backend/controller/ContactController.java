@@ -4,6 +4,7 @@ import com.nubank.desafio_backend.dto.contact.ContactRequest;
 import com.nubank.desafio_backend.dto.contact.ContactResponse;
 import com.nubank.desafio_backend.service.ContactService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,6 @@ public class ContactController {
     @PostMapping
     public ResponseEntity<ContactResponse> createContact(@Valid @RequestBody ContactRequest request) {
         ContactResponse response = service.createContact(request);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

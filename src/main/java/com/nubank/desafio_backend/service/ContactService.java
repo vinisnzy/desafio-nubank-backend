@@ -7,8 +7,6 @@ import com.nubank.desafio_backend.model.Contact;
 import com.nubank.desafio_backend.repository.ContactRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ContactService {
 
